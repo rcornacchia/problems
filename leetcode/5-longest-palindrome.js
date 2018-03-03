@@ -12,29 +12,11 @@
 */
 function findPalindrome(s) {
   let longest = ''
-  s.split('').map((l, index) => {
+  s.split('').map((l, i) => {
     if (!l) return 0;
-    let curr = l, j = i = index
-    if (s[i+1] == l) {
-      curr += s [i + 1]
-      j = i + 1
-    }
-    while (i-1 >= 0 && j+1 <= s.length-1 && s[i-1] == s[j+1]) {
-      curr = s[i-1] + curr + s[j+1]
-      i -= 1
-      j += 1
-    }
-    if (curr.length > longest.length) {
-      longest = curr
-    }
-    // also check to see if we assume that the palindrome is odd, only if the previous check was even
-    curr = l
-    j = i = index
-    while (i-1 >= 0 && j+1 <= s.length-1 && s[i-1] == s[j+1] && curr.length % 2 != 0) {
-      curr = s[i-1] + curr + s[j+1]
-      i -= 1
-      j += 1
-    }
+    let str1 = extendAround(i, i, s)
+    let str2 = extendAround(i, i+1, s)
+    let curr = (str1.length > str2.length) ? str1 : str2
     if (curr.length > longest.length) {
       longest = curr
     }
@@ -42,4 +24,12 @@ function findPalindrome(s) {
   return longest
 }
 
-console.log(findPalindrome('eeeeeeeee'))
+const extendAround = (i, j, s) => {
+  while (i >= 0 && j < s.length && s[i] == s[j+1]) {
+    i -= 1
+    j += 1
+  }
+  return s.substring(i, j+1)
+}
+
+console.log(findPalindrome('eeeeeeeee').length)

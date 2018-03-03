@@ -16,3 +16,8 @@ var isPalindrome = function(x) {
   
   return true;
 };
+
+for (i = 0, j = 10; i < 5 && j > 5; i++, j--) {
+  console.log(`I: ${i}`);
+  console.log(`J: ${j}`);
+}

@@ -25,11 +25,11 @@ function findPalindrome(s) {
 }
 
 const extendAround = (i, j, s) => {
-  while (i >= 0 && j < s.length && s[i] == s[j+1]) {
+  while (i >= 0 && j < s.length && s[i] == s[j]) {
     i -= 1
     j += 1
   }
-  return s.substring(i, j+1)
+  return s.substring(i+1, j)
 }
 
-console.log(findPalindrome('eeeeeeeee').length)
+console.log(findPalindrome('babad'))

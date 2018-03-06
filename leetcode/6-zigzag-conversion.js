@@ -20,25 +20,42 @@
 
 function zigzag(s, numRows) {
   if (!s || !s.length) return ""
+  s = s.split('')
   const matrix = []
   for (let i = 0; i < numRows; i++) {
     matrix.push([])
   }
 
-  let row = 0
   while (s.length) {
-    while (row < numRows-1 && s.length) {
-      matrix[row].push(s.pop())
+    let row = 0
+    while (row < numRows && s.length) {
+      matrix[row].push(s.shift())
+      row++
     }
-    row++
 
-    let row = numRows - 2
+    row = numRows - 2
     while (row > 0) {
       matrix.map((r, i) => {
-        let num = (i == row && s.length) ? s.pop() : -1
+        let num = (i == row && s.length) ? s.shift() : -1
         r.push(num)
       })
       row--
     }
   }
+  return print(matrix)
 }
+
+const print = matrix => {
+  console.log(matrix)
+  let result = ''
+  matrix.map(row => {
+    row.map(letter => {
+      if (letter != -1) {
+        result += letter
+      }
+    })
+  })
+  return result
+}
+
+console.log(zigzag('teststringistesting', 4))

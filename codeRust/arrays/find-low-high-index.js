@@ -15,4 +15,5 @@ function findRange(arr, key) {
   for (let i = index+1; i < arr.length && arr[i] == key; i++) {
     high = i
   }
+  return [low, high]
 }

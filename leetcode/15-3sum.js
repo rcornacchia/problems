@@ -11,8 +11,26 @@
     ]
  */
 
-function threeSum(nums) {
-  
-}
-
-threeSum([-1, 0, 1, 2, -1, -4])
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function(nums) {
+  let result = {};
+  let num = nums.sort((a, b) => a-b);
+  for (let i=0; i < num.length; i++) {
+      let lo = i+1;
+      let hi = num.length-1;
+      let sum = 0-num[i];
+      while (lo < hi) {
+          if (num[lo] + num[hi] == sum) {
+              let triplet = [num[lo], num[hi], num[i]].sort();
+              result[triplet] = triplet;
+              lo++;
+              hi--;
+          } else if (num[lo] + num[hi] < sum) lo++;
+          else hi--;
+      }
+  }
+  return Object.values(result);
+};

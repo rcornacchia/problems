@@ -8,6 +8,7 @@ function deleteNode(head, key) {
 
   let curr = head
   while (curr.next) {
+    console.log(curr.next.data)
     if (curr.next.data == key) {
       // delete curr.next
       curr.next = curr.next.next
@@ -19,4 +20,5 @@ function deleteNode(head, key) {
 }
 
 deleteNode(head, 3)
+console.log()
 printList(head)

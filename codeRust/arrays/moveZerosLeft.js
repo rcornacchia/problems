@@ -18,3 +18,4 @@ const swap = (arr, pos1, pos2) => {
 }
 
 console.log(moveZerosLeft([10, 7, 0, 3, 0]))
+console.log(moveZerosLeft([1, 10, 20, 0, 59, 63, 0, 88, 0]))

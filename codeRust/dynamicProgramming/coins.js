@@ -5,7 +5,6 @@
  * 3  2
  * 4  3
  * 5  4
- * 6  
  */
 
 const denominations = (amount, coins) => {

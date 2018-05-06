@@ -40,7 +40,7 @@ const isSuperBalanced = root => {
     }
   }
 
-  return (minLeafDepth && maxLeafDepth && maxLeafDepth-minLeafDepth < 1)
+  return !!(!minLeafDepth || !maxLeafDepth || maxLeafDepth-minLeafDepth < 2)
 }
 
 class Node {

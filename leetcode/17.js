@@ -19,8 +19,8 @@ const findNumsRec = (str, result) => {
   let newResult = []
   for (let i=0; i<result.length; i++) {
     let curr = result[i]
-    for (let j=0; j<letters.length; j++) {
-      newResult.push(curr+letters[j])
+    for (letter in letters) {
+      newResult.push(curr+letter)
     }
   }
 

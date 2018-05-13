@@ -26,7 +26,7 @@ const findShortestPath = (start, end) => {
         result.push(curr)
         curr = prev[curr]
       }
-      return result
+      return result.reverse()
     }
     let neighbors = network[curr]
     neighbors.forEach(neighbor => {
